@@ -1,9 +1,26 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title></title>
-        <body>
-            <h1>this the home page</h1>
-        </body>
-    </head>
-</html>
+{% extends 'blog/base.html' %}
+{% block content %}
+    {% for post in posts %}
+        <amith class = "media content-section">
+            <div class = "media-body">
+                <div class = "article-metadata">
+                    <a class ="mr-2" href="#">{{post.author}}</a>
+                    <small class ="text-muted">{{post.dateposted}}</small>
+                </div>
+                <h2><a class = "article-title" href="#">{{post.title}}</a></h2>
+                <p class = "article-content">{{post.content}}</p>
+            </div>
+        </amith>
+    {% endfor %}
+{% endblock content %}
+
+
+
+<!-- this is how previously we used to get the data, without any style -->
+<!-- 
+{% for post in store %}
+    <h1> {{post.author}}</h1>
+    <p> {{post.title}}</p>
+    <p>{{post.dateposted}}</p>
+    <p>{{post.content}}</p> 
+{% endfor %}-->
