@@ -8,8 +8,8 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Account created for the {username}!')
-            return redirect('blog-home')
+            messages.success(request, f'Account created for the {username}!, Please Login')
+            return redirect('login')
     else:
         form = UserRegisterForm()  #-> if it is not post we create a blank form
     return render(request, 'users/register.html', {'form':form})
