@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 # Each class will be its own table in the database..
 
@@ -14,3 +15,11 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    # here we are using the reverse() that how to find the url for the any specific model.
+    def get_absolute_url(self):
+        return reverse('post-detail', kwargs={'pk':self.pk})
+    
+    #[difference b/w reverse and redirect]:
+    # redirect: it just reditrectes the page to specific path mentioned.
+    # reverse: it finds the url for the specific model, and return the full path of the location.
