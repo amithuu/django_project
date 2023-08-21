@@ -76,9 +76,8 @@ class PostListView(ListView):
     model = Post
     template_name= 'blog/home.html' # <app>/<model>_<viewtype>.html
     context_object_name = 'posts'  # this is the name of the class that will be created for the post list view[how we have a variable in home function 'posts' in the same way we create the a object variable for class to know that it has its variable to get the objects.
-    paginate_by = 10  # this is the number of posts that we want to display per page.
+    paginate_by = 1  # this is the number of posts that we want to display per page.
     ordering = ['-date_posted']  # this is the order of the posts that we want to display.[newest first]
-  
 
 
 class PostDetailView(DetailView):
