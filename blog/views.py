@@ -69,6 +69,9 @@ def home(request):
     return render(request, 'blog/home.html', context)
 
 
+def about(request):
+    return render(request, 'blog/about.html',{'title':'learning django'})
+
 
 
 class PostListView(ListView):  
@@ -121,6 +124,3 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return True
         return False
     
-
-def about(request):
-    return render(request, 'blog/about.html',{'title':'learning django'})
