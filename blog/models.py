@@ -21,5 +21,5 @@ class Post(models.Model):
         return reverse('post-detail', kwargs={'pk':self.pk})
     
     #[difference b/w reverse and redirect]:
-    # redirect: it just reditrectes the page to specific path mentioned.
+    # redirect: it just redirects the page to specific path mentioned.
     # reverse: it finds the url for the specific model, and return the full path of the location.
