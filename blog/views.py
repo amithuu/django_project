@@ -73,7 +73,6 @@ def about(request):
     return render(request, 'blog/about.html',{'title':'learning django'})
 
 
-
 class PostListView(ListView):  
     # we have created a class , because these are class based view..
     model = Post
@@ -86,6 +85,7 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
     model = Post
 
+
 class PostCreateView(LoginRequiredMixin, CreateView):  # As for the Classes we cannot add decoretors eg:[@loginrequired], So we use this *LoginRequiredMixin* 
     model= Post
     fields = ['title', 'content']
@@ -96,7 +96,6 @@ class PostCreateView(LoginRequiredMixin, CreateView):  # As for the Classes we c
         form.instance.author = self.request.user  # this will add the instance of the current logged in user..
         return super().form_valid(form)           # we are setting that the form is valid to execute.. 
       
-
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):  # UserPassesTestMixin: this the method wchich checks for the current logged in user.
     model = Post
